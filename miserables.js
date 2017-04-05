@@ -22,7 +22,10 @@ function getData(minGroup, maxGroup){
             links: links
         }
     }
-    return JSON.parse(JSON.stringify(data));
+    return {
+        nodes: data.nodes,
+        links: JSON.parse(JSON.stringify(data.links))
+    };
 }
 
 var fullData={
