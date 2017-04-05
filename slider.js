@@ -1,7 +1,7 @@
 
 function setupSlider(updateGraph, color){
 
-var sliderVals=[3, 7],//[0, 10],
+var sliderVals=[0, 10],
     svg = d3.select("svg"),
     width = 400;
 
