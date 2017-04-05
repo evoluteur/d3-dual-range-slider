@@ -24,14 +24,8 @@
 }
 
 .track {
-  stroke: #000;
-  stroke-opacity: 0.3;
-  stroke-width: 8px;
-}
-
-.track-inset {
-  stroke: #ddd;
-  stroke-width: 8px;
+  stroke: #bbb;
+  stroke-width: 10px;
 }
 
 .track-overlay {
@@ -40,7 +34,15 @@
   cursor: crosshair;
 }
 
+.sel-range{
+  stroke: #9CCC65;
+  stroke-width: 8px;
+}
+
 .handle {
+  height:16px;
+  width:20px;
+  rx:3;
   fill: #E0F7FA;
   stroke: #000;
   stroke-opacity: 0.5;

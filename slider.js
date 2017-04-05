@@ -1,10 +1,8 @@
 
-
 function setupSlider(updateGraph, color){
 
-var sliderRange=[0, 10],
+var sliderVals=[3, 7],//[0, 10],
     svg = d3.select("svg"),
-    margin = 50,
     width = 400;
 
 var x = d3.scaleLinear()
@@ -17,36 +15,36 @@ var xMin=x(0),
 
 var slider = svg.append("g")
     .attr("class", "slider")
-    .attr("transform", "translate(" + margin + ",20)");
+    .attr("transform", "translate(5,20)");
 
 slider.append("line")
     .attr("class", "track")
-    .attr("x1", x.range()[0])
-    .attr("x2", x.range()[1])
+    .attr("x1", x.range()[0]+10)
+    .attr("x2", x.range()[1]+10)
+
+var selRange = slider.append("line")
+    .attr("class", "sel-range")
+    .attr("x1", 10+x(sliderVals[0]))
+    .attr("x2", 10+x(sliderVals[1]))
 
 slider.insert("g", ".track-overlay")
     .attr("class", "ticks")
-    .attr("transform", "translate(0,20)")
+    .attr("transform", "translate(10,20)")
   .selectAll("text")
   .data(x.ticks(10))
   .enter().append("text")
     .attr("x", x)
     .attr("text-anchor", "middle")
-    .style('font-weight', 'bold')
-    .style("fill", function(x){return color(x)})
+    .style("font-weight", "bold")
+    .style("fill", function(x){return color(x);})
     .text(function(d) { return d; });
 
-var t = d3.transition()
-    .duration(60)
-    .ease(d3.easeLinear);
-
-var handle = slider.selectAll("circle")
+var handle = slider.selectAll("rect")
   .data([0, 1])
-  .enter().append("circle", ".track-overlay")
+  .enter().append("rect", ".track-overlay")
     .attr("class", "handle")
-    .attr("r", 9)
-    .attr("id", function(d) { return d; })
-    .attr("cx", function(d) { return x(sliderRange[d]); })
+    .attr("y", -8)
+    .attr("x", function(d) { return x(sliderVals[d]); })
     .call(
         d3.drag()
           .on("start", startDrag)
@@ -58,24 +56,33 @@ function startDrag(){
   d3.select(this).raise().classed("active", true);
 }
 
-function drag(){
-  var x=d3.event.x;
-  if(x>xMax){
-    x=xMax
-  }else if(x<xMin){
-    x=xMin
+function drag(d){
+  var x1=d3.event.x;
+  if(x1>xMax){
+    x1=xMax
+  }else if(x1<xMin){
+    x1=xMin
   }
-  d3.select(this).attr("cx", x);
+  d3.select(this).attr("x", x1);
+  var x2=10+x(sliderVals[d==0?1:0])
+  selRange
+      .attr("x1", 10+x1)
+      .attr("x2", 10+x2)
 }
 
 function endDrag(d){
   var v=Math.round(x.invert(d3.event.x))
   var elem=d3.select(this)
+  sliderVals[d] = v
+  var v1=Math.min(sliderVals[0], sliderVals[1]),
+      v2=Math.max(sliderVals[0], sliderVals[1]);
   elem.classed("active", false)
-    .transition(t)
-    .attr("cx", x(v));
-  sliderRange[d] = v
-  updateGraph(Math.min(sliderRange[0], sliderRange[1]), Math.max(sliderRange[0], sliderRange[1])); 
+    .attr("x", x(v));
+  selRange
+      .attr("x1", 10+x(v1))
+      .attr("x2", 10+x(v2))
+
+  updateGraph(v1, v2); 
 }
 
 }
