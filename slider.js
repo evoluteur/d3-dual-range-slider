@@ -2,8 +2,10 @@
 function setupSlider(updateGraph, color){
 
 var sliderVals=[0, 10],
-    svg = d3.select("svg"),
-    width = 400;
+    width = 400,
+    svg = d3.select(".slider-holder").append("svg")
+      .attr('width', width+30)
+      .attr('height', 50);
 
 var x = d3.scaleLinear()
     .domain([0, 10])
@@ -19,8 +21,8 @@ var slider = svg.append("g")
 
 slider.append("line")
     .attr("class", "track")
-    .attr("x1", x.range()[0]+10)
-    .attr("x2", x.range()[1]+10)
+    .attr("x1", 10+x.range()[0])
+    .attr("x2", 10+x.range()[1])
 
 var selRange = slider.append("line")
     .attr("class", "sel-range")

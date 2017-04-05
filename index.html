@@ -3,16 +3,44 @@
 	<head>
 		<title>d3-test</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="demo.css">
+		<link rel="stylesheet" type="text/css" href="slider.css">
 		<script src="d3.v4.min.js"></script>
-		<script src="miserables.js"></script>
+		<script src="data.js"></script>
 		<script src="slider.js"></script>
-		<script src="graph.js"></script>
+		<script src="demo.js"></script>
+		<script>
+		window.onload = function(){
+			var v1=0,
+				v2=10;
+
+			// want the same groups colors in both graph and slider
+			var color = d3.scaleOrdinal(d3.schemeCategory20);
+			for(var i=0;i<11;i++){
+				color(i);
+			}
+			// graph is not fully componentized but returns a refresh function
+			var myGraph = graph(color);
+
+			function updateGraph(min, max){
+				var data = getData(min, max);
+				myGraph.restart(data);
+			}
+
+			setupSlider(updateGraph, color);
+			updateGraph(v1, v2);
+
+		}
+		</script>
 	</head>
 
 	<body>
 
-		<svg width="960" height="600"></svg>
+		<div class="header">
+			<div class="slider-holder"></div>
+		</div>
+
+		<svg id="graph" width="960" height="600"></svg>
 
 	</body>
 	
