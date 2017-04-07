@@ -19,18 +19,27 @@ function graph(color){
       .attr("class", "nodes")
     .selectAll("circle");
 
+  var t = d3.transition()
+    .duration(750)
+    .ease(d3.easeLinear);
+
   function restart(data){
 
     // Apply the general update pattern to the nodes.
     node = node.data(data.nodes, function(d) { return d.id;});
     node.exit().remove();
     var newNode = node.enter().append("circle")
-        .attr("r", 6)
+        .attr("r", 7)
+        .style("opacity", 0)
         .attr("fill", function(d) { return color(d.group); })
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended));
+
+    newNode.transition(t)
+        .style("opacity", 1);
+
     node = newNode.merge(node);
 
     newNode.append("title")
