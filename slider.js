@@ -1,7 +1,7 @@
 
-function setupSlider(updateGraph, color){
+function setupSlider(v1, v2, updateGraph, color){
 
-var sliderVals=[0, 10],
+var sliderVals=[v1, v2],
     width = 400,
     svg = d3.select(".slider-holder").append("svg")
       .attr('width', width+30)
@@ -31,7 +31,7 @@ var selRange = slider.append("line")
 
 slider.insert("g", ".track-overlay")
     .attr("class", "ticks")
-    .attr("transform", "translate(10,20)")
+    .attr("transform", "translate(10,24)")
   .selectAll("text")
   .data(x.ticks(10))
   .enter().append("text")
@@ -66,7 +66,7 @@ function drag(d){
     x1=xMin
   }
   d3.select(this).attr("x", x1);
-  var x2=10+x(sliderVals[d==0?1:0])
+  var x2=x(sliderVals[d==0?1:0])
   selRange
       .attr("x1", 10+x1)
       .attr("x2", 10+x2)

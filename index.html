@@ -11,8 +11,8 @@
 		<script src="demo.js"></script>
 		<script>
 		window.onload = function(){
-			var v1=0,
-				v2=10;
+			var v1=3,
+				v2=7;
 
 			// want the same groups colors in both graph and slider
 			var color = d3.scaleOrdinal(d3.schemeCategory20);
@@ -27,7 +27,7 @@
 				myGraph.restart(data);
 			}
 
-			setupSlider(updateGraph, color);
+			setupSlider(v1, v2, updateGraph, color);
 			updateGraph(v1, v2);
 
 		}
