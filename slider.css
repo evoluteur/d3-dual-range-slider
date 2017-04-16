@@ -26,9 +26,6 @@
 }
 
 .handle {
-  height:16px;
-  width:20px;
-  rx:3;
   fill: #E0F7FA;
   stroke: #000;
   stroke-opacity: 0.5;
