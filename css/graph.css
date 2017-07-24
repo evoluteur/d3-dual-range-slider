@@ -8,6 +8,10 @@
   stroke: #fff;
   stroke-width: 1.5px;
 }
+.nodes circle:hover {
+  r: 10;
+  stroke: grey;
+}
 
 .github{
 	position:absolute;
