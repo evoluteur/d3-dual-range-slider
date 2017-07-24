@@ -8,3 +8,22 @@
   stroke: #fff;
   stroke-width: 1.5px;
 }
+
+.github{
+	position:absolute;
+	top:20px;
+	right:20px;
+}
+.github > a{
+	color: #0099cc;
+	text-decoration: none;
+}
+.github > a:hover{
+	color: black;
+	text-decoration: underline;
+}
+@media screen and (max-width: 540px){
+	.github{
+		display: none;
+	}
+}
