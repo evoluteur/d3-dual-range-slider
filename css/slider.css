@@ -1,17 +1,8 @@
-/* header ----------------------------- */
-
-.header{
-  height: 55px;
-  border-bottom: solid 1px silver;
-}
+/* slider ------------------------------ */
 
 .slider-holder{
   width: 700px;
-  margin-left: 20px;
 }
-
-/* slider ------------------------------ */
-
 .ticks {
   font: 14px sans-serif;
 }
@@ -51,3 +42,4 @@
 .handle.active {
   fill: #4DD0E1;
 }
+

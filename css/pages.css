@@ -1,0 +1,30 @@
+/* html pages ------------------------------ */
+body{
+  color: black;
+  background-color: white; 
+  background-image: url("bg.gif");
+}
+.header{
+	position: relative;
+	margin: 20px;
+	padding: 20px;
+	border: solid 1px silver;
+	background-color: #ffffff;
+	min-width: 550px;
+	max-width: 804px;
+}
+h1{
+	font-size: 18px;
+	margin: 0;
+}
+
+.github{
+	position:absolute;
+	top:20px;
+	right:20px;
+	text-align: right;
+}
+.github > a{
+	color: #0099cc;
+	text-decoration: none;
+}
