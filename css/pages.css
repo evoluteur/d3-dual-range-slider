@@ -1,4 +1,9 @@
 /* html pages ------------------------------ */
+html,
+body{
+	margin: 0;
+	padding: 0;
+}
 body{
   color: black;
   background-color: white; 
@@ -6,12 +11,15 @@ body{
 }
 .header{
 	position: relative;
-	margin: 20px;
+	margin: 10px;
 	padding: 20px;
 	border: solid 1px silver;
 	background-color: #ffffff;
-	min-width: 550px;
-	max-width: 804px;
+	width: 760px;
+	height: 55px;
+}
+svg {	
+	user-select: none;
 }
 h1{
 	font-size: 18px;
@@ -20,11 +28,24 @@ h1{
 
 .github{
 	position:absolute;
-	top:20px;
-	right:20px;
+	top: 18px;
+	right: 16px;
 	text-align: right;
 }
 .github > a{
 	color: #0099cc;
 	text-decoration: none;
+}
+#graph {
+	background-color: white;
+	border: solid 1px silver;
+	border-radius: 5px;
+	margin: 0 10px;
+}
+footer{
+	margin: 20px;
+	color: grey;
+}
+footer > a {
+	color: grey;
 }

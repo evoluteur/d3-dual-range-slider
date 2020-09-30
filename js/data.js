@@ -14,9 +14,7 @@ function getData(minGroup, maxGroup){
                 nodesH[n.id]=true;
             }
         });
-        links=fullData.links.filter(function(l){
-            return nodesH[l.source] && nodesH[l.target];
-        })
+        links=fullData.links.filter(l => nodesH[l.source] && nodesH[l.target])
         data = {
             nodes: nodes,
             links: links

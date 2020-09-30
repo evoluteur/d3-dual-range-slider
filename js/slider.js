@@ -38,15 +38,15 @@ slider.insert("g", ".track-overlay")
     .attr("x", x)
     .attr("text-anchor", "middle")
     .style("font-weight", "bold")
-    .style("fill", function(x){return color(x);})
-    .text(function(d) { return d; });
+    .style("fill", x => color(x))
+    .text(d => d);
 
 var handle = slider.selectAll("rect")
   .data([0, 1])
   .enter().append("rect", ".track-overlay")
     .attr("class", "handle")
     .attr("y", -8)
-    .attr("x", function(d) { return x(sliderVals[d]); })
+    .attr("x", d => x(sliderVals[d]))
     .attr("rx", 3)
     .attr("height", 16)
     .attr("width", 20)
