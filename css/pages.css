@@ -1,51 +1,54 @@
 /* html pages ------------------------------ */
 html,
-body{
-	margin: 0;
-	padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
-body{
+body {
   color: black;
-  background-color: white; 
+  background-color: white;
   background-image: url("bg.gif");
 }
-.header{
-	position: relative;
-	margin: 10px;
-	padding: 20px;
-	border: solid 1px silver;
-	background-color: #ffffff;
-	width: 760px;
-	height: 55px;
+.header {
+  position: relative;
+  margin: 10px;
+  padding: 20px;
+  border: solid 1px silver;
+  background-color: #ffffff;
+  width: 760px;
+  height: 55px;
 }
-svg {	
-	user-select: none;
+svg {
+  user-select: none;
 }
-h1{
-	font-size: 18px;
-	margin: 0;
+h1 {
+  font-size: 18px;
+  margin: 0;
 }
-
-.github{
-	position:absolute;
-	top: 18px;
-	right: 16px;
-	text-align: right;
+.more {
+  padding: 20px 20px 0;
 }
-.github > a{
-	color: #0099cc;
-	text-decoration: none;
+.github {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  text-align: right;
+}
+.github > a {
+  color: #0099cc;
+  text-decoration: none;
+  font-size: 1.5em;
 }
 #graph {
-	background-color: white;
-	border: solid 1px silver;
-	border-radius: 5px;
-	margin: 0 10px;
+  background-color: white;
+  border: solid 1px silver;
+  border-radius: 5px;
+  margin: 0 10px;
 }
-footer{
-	margin: 20px;
-	color: grey;
+footer {
+  margin: 20px;
+  color: grey;
 }
 footer > a {
-	color: grey;
+  color: grey;
 }

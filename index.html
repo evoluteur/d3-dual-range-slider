@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>d3-dual-range-slider</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta name="description" content="SVG range slider for d3.js">
-		<meta name="keywords" content="d3 d3.js dual range slider svg component widget">
+  <head>
+    <title>d3-dual-range-slider</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="SVG range slider for d3.js" />
+    <meta
+      name="keywords"
+      content="d3 d3.js dual range slider svg component widget"
+    />
 
-		<link rel="icon" type="image/png" href="favicon.png" />
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/pages.css">
-		<link rel="stylesheet" type="text/css" href="css/graph.css">
-		<link rel="stylesheet" type="text/css" href="css/slider.css">
-		<script src="js/d3.v4.min.js"></script>
-		<script src="js/data.js"></script>
-		<script src="js/slider.js"></script>
-		<script src="js/graph.js"></script>
-		<script>
-		window.onload = function(){
-			var v1=3,
-				v2=7;
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/pages.css" />
+    <link rel="stylesheet" type="text/css" href="css/graph.css" />
+    <link rel="stylesheet" type="text/css" href="css/slider.css" />
+    <script src="js/d3.v4.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/graph.js"></script>
+    <script>
+      window.onload = function () {
+        var v1 = 3,
+          v2 = 7;
 
-			// want the same groups colors in both graph and slider
-			var color = d3.scaleOrdinal(d3.schemeCategory20);
-			for(var i=0;i<11;i++){
-				color(i);
-			}
-			// graph is not fully componentized but returns a refresh function
-			var myGraph = graph(color);
+        // want the same groups colors in both graph and slider
+        var color = d3.scaleOrdinal(d3.schemeCategory20);
+        for (var i = 0; i < 11; i++) {
+          color(i);
+        }
+        // graph is not fully componentized but returns a refresh function
+        var myGraph = graph(color);
 
-			function updateGraph(min, max){
-				var data = getData(min, max);
-				myGraph.restart(data);
-			}
+        function updateGraph(min, max) {
+          var data = getData(min, max);
+          myGraph.restart(data);
+        }
 
-			setupSlider(v1, v2, updateGraph, color);
-			updateGraph(v1, v2);
+        setupSlider(v1, v2, updateGraph, color);
+        updateGraph(v1, v2);
+      };
+    </script>
+  </head>
 
-		}
-		</script>
-	</head>
+  <body>
+    <div class="header">
+      <div class="slider-holder"></div>
+      <div class="github">
+        <a href="https://github.com/evoluteur/d3-dual-range-slider"
+          >d3-dual-range-slider</a
+        ><br /><br />
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=evoluteur&repo=d3-dual-range-slider&type=star&count=true&size=small"
+          frameborder="0"
+          scrolling="0"
+          width="100px"
+          height="30px"
+        ></iframe>
+      </div>
+    </div>
 
-	<body>
-
-		<div class="header">
-			<div class="slider-holder"></div>
-			<div class="github">
-				<a href="https://github.com/evoluteur/d3-dual-range-slider">d3-dual-range-slider</a><br/><br/>
-				<iframe src="https://ghbtns.com/github-btn.html?user=evoluteur&repo=d3-dual-range-slider&type=star&count=true&size=small" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
-			</div>
-		</div>
-
-		<svg id="graph" width="800" height="600"></svg>
-
-		<footer>
-			&#169; 2020 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
-		</footer>
-
-	</body>
-	
+    <svg id="graph" width="800" height="600"></svg>
+    <div class="more">
+      More of my D3 animations with
+      <a href="https://evoluteur.github.io/meet-the-fans">meet-the-fans</a>
+      and
+      <a href="https://evoluteur.github.io/d3-table-cards/">d3-table-cards</a>.
+    </div>
+    <footer>
+      &#169; 2023 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
+    </footer>
+  </body>
 </html>
