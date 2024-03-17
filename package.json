@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "SVG component for dual-range-slider built with D3.js.",
   "author": "Olivier Giulieri (https://evoluteur.github.io/)",
-  "copyright": "(c) 2023 Olivier Giulieri",
+  "copyright": "(c) 2024 Olivier Giulieri",
   "repository": {
     "type": "git",
     "url": "https://github.com/evoluteur/d3-dual-range-slider.git"
@@ -13,6 +13,7 @@
   "bugs": "https://github.com/evoluteur/d3-dual-range-slider/issues",
   "keywords": [
     "d3",
+    "d3js",
     "slider",
     "range",
     "range-slider",

@@ -12,4 +12,4 @@ SVG component for dual-range-slider built with D3.js.
  [d3-table-cards](https://evoluteur.github.io/d3-table-cards/).
 
 
-(c) 2023 [Olivier Giulieri](https://evoluteur.github.io/).
+(c) 2024 [Olivier Giulieri](https://evoluteur.github.io/).
